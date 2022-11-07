@@ -23,7 +23,7 @@ jobs:
       uses: actions/upload-artifact@v3     
       with:
         name: simplewebservice.jar
-        path: ./target
+        path: /target
     - uses: actions/checkout@v3
     - name: Login to Docker Hub
       uses: docker/login-action@v2
@@ -36,4 +36,4 @@ jobs:
       with:
         images: ${{secrets.DOCKER_NAME}}/simplewebservice2
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag simplewebservice2:$(date +%s)
+      run: ls -l && docker build . --file Dockerfile --tag simplewebservice2:$(date +%s)
