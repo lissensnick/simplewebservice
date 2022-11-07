@@ -22,13 +22,12 @@ jobs:
       with:        
         name: simplewebservice.jar        
         path: target/simplewebservice.jar
-    - uses: docker/login-action@v2
+    - uses: actions/checkout@v3
     - name: Login to Docker Hub
-      env:
-        DOCKER_USER: ${{ secrets.DOCKER_NAME }}
-        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-      run: |
-        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+      uses: docker/login-action@v2
+      with:
+        username: ${{secrets.DOCKER_NAME }}
+        password: ${{secrets.DOCKER_PASSWORD }}
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag ${{secrets.DOCKER_NAME}}/simplewebservice2:$(date +%s)
     - name: Push the Docker image
