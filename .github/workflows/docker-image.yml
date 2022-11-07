@@ -36,3 +36,4 @@ jobs:
         context: .
         file: ./Dockerfile
         push: true
+        tag: ${{secrets.DOCKER_NAME}}/simplewebservice2:$(date +%s)
