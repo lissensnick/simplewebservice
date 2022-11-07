@@ -28,6 +28,11 @@ jobs:
       with:
         username: ${{secrets.DOCKER_NAME }}
         password: ${{secrets.DOCKER_PASSWORD }}
+    - name: Extract metadata for the Docker image
+      id: meta
+      uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
+      with:
+        images: ${{secrets.DOCKER_NAME}}/simplewebservice2
     - name: Build the Docker image
       uses: docker/setup-buildx-action@v2
     - name: Build & push
