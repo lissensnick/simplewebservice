@@ -38,5 +38,5 @@ jobs:
       with:
         context: .
         push: true
-        tags: ${{env.GITHUB_ENV}}
+        tags: "${{env.SNAPSHOT}}"
 
