@@ -18,7 +18,6 @@ jobs:
     - name: Build package      
       run: | 
         mvn clean package
-        mkdir target && cp target/*.jar target
     - name: Upload build artifacts       
       uses: actions/upload-artifact@v2      
       with:
