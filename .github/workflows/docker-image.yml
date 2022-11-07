@@ -37,6 +37,7 @@ jobs:
     - name: Build the Docker image
       uses: docker/setup-buildx-action@v1
       with:
+        context: .
         version: v0.7.0
     - name: Build & push
       uses: docker/build-push-action@v3
